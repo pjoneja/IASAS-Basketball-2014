@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Pranav Joneja">
+
+    <title>Stream | IASAS Basketball 2014</title>
+    <link rel="shortcut icon" href="./img/basketball.png"/>
+
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47616651-1', 'jisedu.or.id');
+  ga('send', 'pageview');
+
+</script>
+      
+    <script type='text/javascript'>
+        //this will be executed after we "fetch" the contents of a spreadsheet. The json parameter will hold our spreadsheet's data
+        function displayContent(json) {
+            //Create an empty string to hold the HTML. We will put table data here.
+            var HS_Gym=json.feed.entry[0].gsx$hsgym.$t;
+            var HS_Now_Playing=json.feed.entry[0].gsx$hsnow.$t;
+            var HS_Video=json.feed.entry[0].gsx$hsvideo.$t;
+            
+            var MS_Gym=json.feed.entry[0].gsx$msgym.$t;
+            var MS_Now_Playing=json.feed.entry[0].gsx$msnow.$t;
+            var MS_Video=json.feed.entry[0].gsx$msvideo.$t;
+            
+            var Poll=json.feed.entry[0].gsx$pollformid.$t;
+            
+            document.getElementById('HS-Gym').innerHTML = HS_Gym
+            document.getElementById('HS-Now-Playing').innerHTML = HS_Now_Playing
+            document.getElementById('HS-Video').innerHTML = HS_Video
+            
+            document.getElementById('Poll').innerHTML = Poll
+        }    
+    </script>  
+      
+      
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+  </head>
+    
+<style type="text/css">
+.video-container {     position: relative;  padding-bottom: 56.25%;     padding-top: 30px; height: 0; overflow:visible; }     
+.video-container iframe, .video-container object, .video-container embed  {     position: absolute;     top: 0;     left: 0;     width: 100%;     height: 100%; }
+    
+.btn-fans {
+  color: white;
+  background-color: #843eb5;
+  border-color: #820088;
+}
+
+.btn-fans:hover,
+.btn-fans:focus,
+.btn-fans:active,
+.btn-fans.active,
+.open .dropdown-toggle.btn-fans {
+  color: white;
+  background-color: #915fb4;
+  border-color: #820088;
+}
+.btn-schedule {
+  color: white;
+  background-color: orange;
+  border-color: #f09c01;
+}
+
+.btn-schedule:hover,
+.btn-schedule:focus,
+.btn-schedule:active,
+.btn-schedule.active,
+.open .dropdown-toggle.btn-schedule {
+  color: white;
+  background-color: #fdc153;
+  border-color: #f09c01;
+}     
+</style>
+    
+    
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+          <a class="navbar-brand" href="index.html"><img src="./img/IASAS_Basketball_Logo.png" width="23"><strong> IASAS</strong> Basketball 2014</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:1em"><strong>Teams <b class="caret"></b></strong></a>
+              <ul class="dropdown-menu">
+                <li><a href="team-ISB.html">ISB</a></li>
+                <li><a href="team-ISKL.html">ISKL</a></li>
+                <li><a href="team-ISM.html">ISM</a></li>
+                <li><a href="team-JIS.html">JIS</a></li>
+                <li><a href="team-SAS.html">SAS</a></li>
+                <li><a href="team-TAS.html">TAS</a></li>
+              </ul>
+            </li>
+            <li><a href="schedule.html" style="font-size:1em"><strong>Schedule</strong></a></li>
+            <li><a href="fans.html" style="font-size:1em"><strong>Fans</strong></a></li>
+            <li><a href="photos.html" style="font-size:1em"><strong>Photos</strong></a></li> 
+            <li><a href="stream.html" style="font-size:1em"><strong>Stream</strong></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:1em"><strong>Results <b class="caret"></b></strong></a>
+                <ul class="dropdown-menu">
+                <li><a href="scores.html" style="font-size:1em">Game Scores</a></li>    
+                <li><a href="standings.html" style="font-size:1em">Tournament Standings</a></li>
+                <li><a href="results.html" style="font-size:1em">Final Results</a></li>       
+                </ul>
+              </li>  
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+        <!---title--->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <h1 class="page-header"> Live Stream</h1>
+        </div> 
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="overflow:hidden">
+            <br>
+        <p style="text-align:right"><img src="./img/LIVE.png" width="170"></p>    
+        </div>
+        <div class="clearfix"></div>
+      
+        <!---View older games--->
+        <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <p style="text-align:center"><a href="http://www.youtube.com/jisevents/" style="text-align:center"><button type="button" class="btn btn-default"><h4>Click here to watch video footage of all games</h4></button></a></p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-lg-6 col-lg-offset-3 visible-lg text-center">
+            <a href="schedule.html">
+                <button type="button" class="btn btn-schedule" style="padding-top:5em;padding-bottom:5em;margin-top:2em; margin-bottom:2em">Schedule</button></a>
+            <a href="fans.html">
+                <button type="button" class="btn btn-fans" style="padding-top:5em;padding-bottom:5em;margin-top:2em; margin-bottom:2em">Fans</button></a>
+            <a href="photos.html">
+                <button type="button" class="btn btn-danger" style="padding-top:5em;padding-bottom:5em;margin-top:2em; margin-bottom:2em">Photos</button></a>
+            <a href="scores.html">
+                <button type="button" class="btn btn-primary" style="padding-top:5em;padding-bottom:5em;margin-top:2em; margin-bottom:2em">Scores</button></a>
+            <a href="standings.html">
+                <button type="button" class="btn" style="padding-top:5em;padding-bottom:5em;margin-top:2em; margin-bottom:2em">Standings</button></a>
+            <h4>Please refresh the page between games to get the latest stream</h4>
+        </div>
+        <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 hidden-lg text-center">
+            <a href="schedule.html">
+                <button type="button" class="btn btn-schedule" style="width:20em">Schedule</button></a>
+            <a href="fans.html">
+                <button type="button" class="btn btn-fans" style="width:20em">Fans</button></a>
+            <a href="photos.html">
+                <button type="button" class="btn btn-danger" style="width:20em">Photos</button></a>
+            <a href="scores.html">
+                <button type="button" class="btn btn-primary" style="width:20em">Scores</button></a>
+            <a href="standings.html">
+                <button type="button" class="btn" style="width:20em">Standings</button></a>
+            <br>
+            <h4>Please refresh the page between games to get the latest stream</h4>
+        </div>
+        <div class="clearfix"></div>
+      
+        <!---Poll--->
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+            <h3 style="text-align:center">Audience Poll</h3>
+            <span id="Poll"></span>
+            <p style="text-align:right"><a href="fans.html#poll"><button type="button" class="btn btn-fans">Poll Results <i class="glyphicon glyphicon-chevron-right"></i></button></a></p>
+        </div>
+        <div class="clearfix"></div>
+    <div class="container">
+
+      <hr>
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><a href="https://www.jisedu.or.id/index.aspx">&copy; Jakarta International School 2014</a>, <small>by Pranav Joneja, Ritwik Bose &amp; Vicente Mac Hansen</small></p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/modern-business.js"></script>
+    <script src="https://spreadsheets.google.com/feeds/list/0Ag48tSRbJ9WgdGh3NHFjVjVVcU5qRnVLTFFRZ2I0V3c/od6/public/values?alt=json-in-script&amp;callback=displayContent" type="text/javascript"></script>  
+      
+  </body>
+</html>

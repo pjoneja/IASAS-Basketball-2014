@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Pranav Joneja">
+
+    <title>Final Results | IASAS Basketball 2014</title>
+    <link rel="shortcut icon" href="./img/basketball.png"/> 
+       
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47616651-1', 'jisedu.or.id');
+  ga('send', 'pageview');
+
+</script>
+      
+    <!---Script-->
+    <script type='text/javascript'>
+        //this will be executed after we "fetch" the contents of a spreadsheet. The json parameter will hold our spreadsheet's data
+        function displayContent(json) {
+            //Create an empty string to hold the HTML. We will put table data here.
+            var Boys_Place1=json.feed.entry[0].gsx$boysplace.$t;
+            var Boys_Place2=json.feed.entry[1].gsx$boysplace.$t;
+            var Boys_Place3=json.feed.entry[2].gsx$boysplace.$t;
+            
+            
+            var Boys_First=json.feed.entry[0].gsx$boysteam.$t;
+            var Boys_Second=json.feed.entry[1].gsx$boysteam.$t;
+            var Boys_Third=json.feed.entry[2].gsx$boysteam.$t;
+            
+            
+            var Girls_Place1=json.feed.entry[0].gsx$girlsplace.$t;
+            var Girls_Place2=json.feed.entry[1].gsx$girlsplace.$t;
+            var Girls_Place3=json.feed.entry[2].gsx$girlsplace.$t;
+            
+            
+            var Girls_First=json.feed.entry[0].gsx$girlsteam.$t;
+            var Girls_Second=json.feed.entry[1].gsx$girlsteam.$t;
+            var Girls_Third=json.feed.entry[2].gsx$girlsteam.$t;
+            
+            
+            var Spirit=json.feed.entry[0].gsx$spirit.$t;
+            
+            var Boys_All_Tournament='';
+            var Girls_All_Tournament='';
+            
+            var len = json.feed.entry.length 
+            
+            for (var i=0; i<len; i++) {
+                Boys_All_Tournament += [
+                    '<tr style="text-align:center">',
+                    '<td>',
+                    json.feed.entry[i].gsx$boysatname.$t,
+                    '</td><td>',
+                    json.feed.entry[i].gsx$boysatgrade.$t,
+                    '</td><td>', 
+                    json.feed.entry[i].gsx$boysatschool.$t, 
+                    '</td>',
+                    '</tr>'
+                ].join('');  
+            }
+            for (var i=0; i<len; i++) {
+                Girls_All_Tournament += [
+                    '<tr style="text-align:center">',
+                    '<td>',
+                    json.feed.entry[i].gsx$girlsatname.$t,
+                    '</td><td>',
+                    json.feed.entry[i].gsx$girlsatgrade.$t,
+                    '</td><td>', 
+                    json.feed.entry[i].gsx$girlsatschool.$t, 
+                    '</td>',
+                    '</tr>'
+                ].join('');  
+            }
+            //put all three of our HTML strings into our div we made at the top of the page
+            document.getElementById('Boys-Place1').innerHTML = Boys_Place1
+            document.getElementById('Boys-Place2').innerHTML = Boys_Place2
+            document.getElementById('Boys-Place3').innerHTML = Boys_Place3
+            
+            
+            document.getElementById('Boys-First').innerHTML = Boys_First
+            document.getElementById('Boys-Second').innerHTML = Boys_Second
+            document.getElementById('Boys-Third').innerHTML = Boys_Third
+            
+            
+            document.getElementById('Girls-Place1').innerHTML = Girls_Place1
+            document.getElementById('Girls-Place2').innerHTML = Girls_Place2
+            document.getElementById('Girls-Place3').innerHTML = Girls_Place3
+            
+            
+            document.getElementById('Girls-First').innerHTML = Girls_First
+            document.getElementById('Girls-Second').innerHTML = Girls_Second
+            document.getElementById('Girls-Third').innerHTML = Girls_Third
+            
+            document.getElementById('Boys-All-Tournament').innerHTML = '<table class="table table-striped table-condensed" style="margin: 0px auto;"><tbody><tr style="background-color:grey; text-align:center"><td style="background-color:grey"><h4 style="color:white"><strong>Name</strong></h4></td><td style="background-color:grey"><h4 style="color:white"><strong>Grade</strong></h4></td><td style="background-color:grey"><h4 style="color:white"><strong>School</strong></h4></td></tr>' + Boys_All_Tournament + '</table>'
+            
+            document.getElementById('Girls-All-Tournament').innerHTML = '<table class="table table-striped table-condensed" style="margin: 0px auto;"><tbody><tr style="background-color:grey; text-align:center"><td style="background-color:grey"><h4 style="color:white"><strong>Name</strong></h4></td><td style="background-color:grey"><h4 style="color:white"><strong>Grade</strong></h4></td><td style="background-color:grey"><h4 style="color:white"><strong>School</strong></h4></td></tr>' + Girls_All_Tournament + '</table>'
+        }    
+    </script>  
+      
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+          <a class="navbar-brand" href="index.html"><img src="./img/IASAS_Basketball_Logo.png" width="23"><strong> IASAS</strong> Basketball 2014</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:1em"><strong>Teams <b class="caret"></b></strong></a>
+              <ul class="dropdown-menu">
+                <li><a href="team-ISB.html">ISB</a></li>
+                <li><a href="team-ISKL.html">ISKL</a></li>
+                <li><a href="team-ISM.html">ISM</a></li>
+                <li><a href="team-JIS.html">JIS</a></li>
+                <li><a href="team-SAS.html">SAS</a></li>
+                <li><a href="team-TAS.html">TAS</a></li>
+              </ul>
+            </li>
+            <li><a href="schedule.html" style="font-size:1em"><strong>Schedule</strong></a></li>
+            <li><a href="fans.html" style="font-size:1em"><strong>Fans</strong></a></li>
+            <li><a href="photos.html" style="font-size:1em"><strong>Photos</strong></a></li> 
+            <li><a href="stream.html" style="font-size:1em"><strong>Stream</strong></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:1em"><strong>Results <b class="caret"></b></strong></a>
+                <ul class="dropdown-menu">
+                <li><a href="scores.html" style="font-size:1em">Game Scores</a></li>    
+                <li><a href="standings.html" style="font-size:1em">Tournament Standings</a></li>
+                <li><a href="results.html" style="font-size:1em">Final Results</a></li>       
+                </ul>
+              </li>  
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+        
+    <div class="row">
+         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <h1 class="page-header"> Final Results</h1>
+        </div> 
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <br>
+        <p style="text-align:right"><img src="./img/Basketball_Logo_Transparent.png" width="120"></p>    
+        </div>
+      </div>    
+
+      <div class="row">
+          
+        <div class="col-lg-12">
+        <h4>Message from the High School Principal and Athletics Office:</h4>    
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4"><img class="img-responsive" src="./img/SC.jpg"></div>
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
+        <p>As we draw the curtain closed on what has been a fantastic IASAS Basketball tournament,  our congratulations go out to all players, coaches, parents, officials and helpers who have all contributed so much to the success of this event.  The games were played in true IASAS spirit, with teams humble in victory and gracious in defeat.  Many new friendships were made and existing ties were strengthened.  We wish all our seniors the very best as they turn their focus to life after High School and we look forward to seeing our up and coming stars returning to IASAS basketball in the years to come.  Safe travels to one and all and thank you - it was a pleasure to host IASAS Basketball!</p>    
+        <p style="text-align:right"><strong>Steve Clark</strong>,<br>JIS High School Principal</p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-lg-12">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">    
+        <br>
+        <p>Congratulations to all athletes for your successful participation in the 2014 IASAS Basketball Tournament.  Your commitment to building positive spirit on the court and in the stands was exemplary all week.  You did your schools and IASAS proud!</p>
+        <p style="text-align:right"><strong>Nevin Odden</strong>,<br>JIS High School Athletics Coordinator</p>
+         
+        </div>
+         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4"><img class="img-responsive" src="./img/NO.jpg"></div>      
+        </div>  
+          
+        <div class="row">
+        
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 style="text-align:center"><strong>Tournament Results</strong></h2>
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-6 table-responsive">
+                <h2 style="text-align:center"><strong>Boys</strong></h2>
+                <table style="margin: 0px auto;">
+                <tbody>
+                    <tr>
+                        <td style="background-color:grey; padding-right: 10px; padding-left: 10px; text-align:center"><h4 style="color:white"><strong>Place</strong></h4></td>
+                        <td style="background-color:grey; padding-right: 50px; padding-left: 50px; text-align:center"><h4 style="color:white"><strong>Team</strong></h4></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:gold; text-align:center"><h4><strong><div id="Boys-Place1"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Boys-First"></div></strong></h4></td>
+                        <td><img src="./img/trophy_gold.png" width="45"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:silver; text-align:center"><h4><strong><div id="Boys-Place2"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Second"></div></strong></h4></td>
+                        <td><img src="./img/trophy_silver.png" width="45"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:#CD7F32; text-align:center"><h4><strong><div id="Boys-Place3"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Third"></div></strong></h4></td>
+                        <td><img src="./img/trophy_bronze.png" width="45"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Place4"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Fourth"></div></strong></h4></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Place5"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Fifth"></div></strong></h4></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Place6"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Boys-Sixth"></div></strong></h4></td>
+                    </tr>
+                </tbody>    
+                </table>    
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h2 style="text-align:center"><strong>Girls</strong></h2>
+                <table style="margin: 0px auto;">
+                <tbody>
+                    <tr>
+                        <td style="background-color:grey; padding-right: 10px; padding-left: 10px; text-align:center"><h4 style="color:white"><strong>Place</strong></h4></td>
+                        <td style="background-color:grey; padding-right: 50px; padding-left: 50px; text-align:center"><h4 style="color:white"><strong>Team</strong></h4></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:gold; text-align:center"><h4><strong><div id="Girls-Place1"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Girls-First"></div></strong></h4></td>
+                        <td><img src="./img/trophy_gold.png" width="45"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:silver; text-align:center"><h4><strong><div id="Girls-Place2"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Second"></div></strong></h4></td>
+                        <td><img src="./img/trophy_silver.png" width="45"></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:#CD7F32; text-align:center"><h4><strong><div id="Girls-Place3"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Third"></div></strong></h4></td>
+                        <td><img src="./img/trophy_bronze.png" width="45"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Place4"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Fourth"></div></strong></h4></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Place5"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Fifth"></div></strong></h4></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Place6"></div></strong></h4></td>
+                        <td style="text-align:center"><h4><strong><div id="Girls-Sixth"></div></strong></h4></td>
+                    </tr>
+                </tbody>    
+                </table>    
+            </div>
+        
+        </div><!--/TournamentResultsRow-->      
+
+        <div class="row">
+          
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 style="text-align:center"><strong>All Tournament Team</strong></h2>
+            </div>
+        
+        <div class="col-lg-2 col-md-1"></div>    
+            
+        <div class="col-lg-3 col-md-4 col-sm-6">
+                <h3 style="text-align:center"><strong>Boys</strong></h3>
+                <div id="Boys-All-Tournament"></div>
+            </div>
+        
+        <div class="col-lg-2 col-md-2"></div>    
+            
+        <div class="col-lg-3 col-md-4 col-sm-6">
+                <h3 style="text-align:center"><strong>Girls</strong></h3>
+                <div id="Girls-All-Tournament"></div>
+            </div>    
+            
+        </div><!--/AllTournamentTeamRow-->
+          
+        <div class="row">
+            
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 style="text-align:center"><strong>Four-Year Athletes</strong></h2>
+            </div>
+            
+            <div class="col-lg-2 col-md-1"></div>
+            
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <h3 style="text-align:center"><strong>Boys</strong></h3>
+                <table class="table table-striped table-condensed" style="margin: 0px auto;">
+                    <tbody>
+                        <tr>
+                            <td style="background-color:grey; text-align:center"><h4 style="color:white"><strong>Name</strong></h4></td>
+                            <td style="background-color:grey; text-align:center"><h4 style="color:white"><strong>School</strong></h4></td>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>Martin S.</td>
+                            <td>ISKL</td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+            
+            <div class="col-lg-2 col-md-2"></div> 
+            
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <h3 style="text-align:center"><strong>Girls</strong></h3>
+                <table class="table table-striped table-condensed" style="margin: 0px auto;">
+                    <tbody>
+                        <tr>
+                            <td style="background-color:grey; text-align:center"><h4 style="color:white"><strong>Name</strong></h4></td>
+                            <td style="background-color:grey; text-align:center"><h4 style="color:white"><strong>School</strong></h4></td>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>Jenjira M.</td>
+                            <td>ISB</td>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>Saskia B.</td>
+                            <td>ISKL</td>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td>Chris S.-M.</td>
+                            <td>SAS</td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+          
+          </div><!--/FourYearAthletesRow-->  
+         
+        <div class="row">
+          
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h2 style="text-align:center"><strong>Spirit of IASAS Award</strong></h2>
+                <br>
+                <h3 style="text-align:center"><img src="./img/school_JIS_100px.png"> JIS Lady Dragons<br><small>&amp;</small><br><img src="./img/school_ISM_100px.png"> ISM Lady Bearcats</h3>
+              
+            </div>
+            
+        </div><!---/SpiritOfIASAS-->    
+          
+      </div>
+
+    </div><!-- /.container -->
+
+    <div class="container">
+
+      <hr>
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p><a href="https://www.jisedu.or.id/index.aspx">&copy; Jakarta International School 2014</a>, <small>by Pranav Joneja, Ritwik Bose &amp; Vicente Mac Hansen</small></p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/modern-business.js"></script>
+      <script src="https://spreadsheets.google.com/feeds/list/0Ag48tSRbJ9WgdGRLcXVlVkxDNXNaeWM4SXVnVHZ6RWc/od6/public/values?alt=json-in-script&amp;callback=displayContent" type="text/javascript"></script>
+
+  </body>
+</html>

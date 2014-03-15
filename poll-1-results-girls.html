@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Poll 2 Results - Girls | IASAS Basketball 2014</title><!----Day Number--->
+    <link rel="shortcut icon" href="./img/basketball.png"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap-polls.min.css" rel="stylesheet">
+      
+    <script type='text/javascript'>
+        
+        function displayContent(json) {
+            var Girls_ISB=parseFloat(18);
+            var Girls_ISKL=parseFloat(9);
+            var Girls_ISM=parseFloat(31);
+            var Girls_JIS=parseFloat(34);
+            var Girls_SAS=parseFloat(4);
+            var Girls_TAS=parseFloat(4);
+            
+            var leading_choice=parseFloat(34);
+            
+            var multiplier = 1.1
+            
+            if (leading_choice > 60) {
+                multiplier = 0.6
+            }
+            
+            document.getElementById('Girls-ISB-Bar').style.width = Girls_ISB * multiplier + '%';
+            document.getElementById('Girls-ISKL-Bar').style.width = Girls_ISKL * multiplier + '%';
+            document.getElementById('Girls-ISM-Bar').style.width = Girls_ISM * multiplier + '%';
+            document.getElementById('Girls-JIS-Bar').style.width = Girls_JIS * multiplier + '%';
+            document.getElementById('Girls-SAS-Bar').style.width = Girls_SAS * multiplier + '%';
+            document.getElementById('Girls-TAS-Bar').style.width = Girls_TAS * multiplier + '%';
+            
+            document.getElementById('Girls-ISB-vote').innerHTML = Girls_ISB;
+            document.getElementById('Girls-ISKL-vote').innerHTML = Girls_ISKL;
+            document.getElementById('Girls-ISM-vote').innerHTML = Girls_ISM;
+            document.getElementById('Girls-JIS-vote').innerHTML = Girls_JIS;
+            document.getElementById('Girls-SAS-vote').innerHTML = Girls_SAS;
+            document.getElementById('Girls-TAS-vote').innerHTML = Girls_TAS;
+            
+            }
+    </script>  
+  </head>
+  <body style="background-color: #f5f5f5">
+      <h4 style="text-align:right">Girls</h4>
+      <p style="text-align:right">18&#37; <button id="Girls-ISB-Bar" type="button" class="btn btn-default" style="height: 24px; margin-bottom:5px; margin-right:10px; width: 18%"></button><strong> ISB </strong><img src="img/school_ISB_60px.png" width="32"></p>
+      <p style="text-align:right">9&#37; <button id="Girls-ISKL-Bar" type="button" class="btn btn-warning" style="height: 24px; margin-bottom:5px; margin-right:3px; width: 9%"></button><strong> ISKL </strong><img src="img/school_ISKL_60px.png" width="32"></p>
+      <p style="text-align:right">31&#37; <button id="Girls-ISM-Bar" type="button" class="btn btn-success" style="height: 24px; margin-bottom:5px; margin-right:7px; width: 31%"></button><strong> ISM </strong><img src="img/school_ISM_60px.png" width="32"></p>
+      <p style="text-align:right">34&#37; <button id="Girls-JIS-Bar" type="button" class="btn btn-primary" style="height: 24px; margin-bottom:5px; margin-right:12px; width: 34%"></button><strong> JIS </strong><img src="img/school_JIS_60px.png" width="32"></p>
+      <p style="text-align:right">4&#37; <button id="Girls-SAS-Bar" type="button" class="btn btn-danger" style="height: 24px; margin-bottom:5px; margin-right:5px; width: 4%"></button><strong> SAS </strong><img src="img/school_SAS_60px.png" width="32"></p>
+      <p style="text-align:right">4&#37; <button id="Girls-TAS-Bar" type="button" class="btn btn-info" style="height: 24px; margin-bottom:5px; margin-right:5px; width: 4%"></button><strong> TAS </strong><img src="img/school_TAS_60px.png" width="32"></p>
+      
+    <!---JS--->  
+    <script src="js/bootstrap-polls.min.js"></script>
+  </body>
+</html> 
